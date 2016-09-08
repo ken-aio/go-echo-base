@@ -1,0 +1,15 @@
+package: github.com/ken-aio/echo-base
+import:
+- package: github.com/Sirupsen/logrus
+#- package: github.com/go-sql-driver/mysql
+- package: github.com/lib/pq
+- package: github.com/gocraft/dbr
+- package: github.com/labstack/echo
+  subpackages:
+  - middleware
+# Testing FW
+- package: gopkg.in/check.v1
+- package: github.com/stretchr/testify/assert
+- package: gopkg.in/testfixtures.v1
+  subpackages:
+  - gopkg.in/yaml.v2
