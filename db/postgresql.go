@@ -2,7 +2,7 @@ package db
 
 import (
 	"github.com/Sirupsen/logrus"
-	"github.com/ken-aio/go-echo-base/conf"
+	"github.com/ken-aio/pictwitter-go/conf"
 	_ "github.com/lib/pq"
 	"github.com/gocraft/dbr"
 )
@@ -16,7 +16,8 @@ func InitTest() *dbr.Session {
 }
 
 func getSession() *dbr.Session {
-	con, err := dbr.Open("postgres", "postgres://"+conf.DB_USER+":"+conf.DB_PASSWORD+"@"+conf.DB_HOST+":"+conf.DB_PORT+"/"+conf.DB_NAME+"?sslmode=disable", nil)
+	c := conf.GetConfig()
+	con, err := dbr.Open("postgres", "postgres://"+c.DBUser+":"+c.DBPassword+"@"+c.DBHost+":"+c.DBPort+"/"+c.DBName+"?sslmode=disable", nil)
 
 	if err != nil {
 		logrus.Error(err)
@@ -27,7 +28,8 @@ func getSession() *dbr.Session {
 }
 
 func getTestSession() *dbr.Session {
-	con, err := dbr.Open("postgres", "postgres://"+conf.DB_USER+":"+conf.DB_PASSWORD+"@"+conf.DB_HOST+":"+conf.DB_PORT+"/"+conf.TEST_DB_NAME+"?sslmode=disable", nil)
+	c := conf.GetTestConfig()
+	con, err := dbr.Open("postgres", "postgres://"+c.DBUser+":"+c.DBPassword+"@"+c.DBHost+":"+c.DBPort+"/"+c.DBName+"?sslmode=disable", nil)
 
 	if err != nil {
 		logrus.Error(err)
