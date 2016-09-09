@@ -1,12 +1,15 @@
 package model
 
 import (
+	"time"
 	"github.com/gocraft/dbr"
 )
 
 type Xxx struct {
-	Id   int64  `json:"id"`
-	Name string `json:"name"`
+	Id        int64     `json:"id"`
+	Name      string    `json:"name"`
+	CreatedAt time.Time `json:"created_at"`
+	UpdatedAt time.Time `json:"updated_at"`
 }
 
 func NewXxx(name string) *Xxx {
@@ -16,9 +19,11 @@ func NewXxx(name string) *Xxx {
 }
 
 func (m *Xxx) Save(tx *dbr.Tx) error {
+	m.CreatedAt = time.Now()
+	m.UpdatedAt = time.Now()
 
-	_, err := tx.InsertInto("xxx").
-		Columns("name").
+	_, err := tx.InsertInto("xxxs").
+		Columns("name", "created_at", "updated_at").
 		Record(m).
 		Exec()
 
@@ -28,7 +33,7 @@ func (m *Xxx) Save(tx *dbr.Tx) error {
 func (m *Xxx) Load(tx *dbr.Tx, id int64) error {
 
 	return tx.Select("*").
-		From("xxx").
+		From("xxxs").
 		Where("id = ?", id).
 		LoadStruct(m)
 }
@@ -43,7 +48,7 @@ func (m *Xxxs) Load(tx *dbr.Tx, name string) error {
 	}
 
 	return tx.Select("*").
-		From("xxx").
+		From("xxxs").
 		Where(condition).
 		LoadStruct(m)
 }

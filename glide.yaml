@@ -1,4 +1,4 @@
-package: github.com/ken-aio/echo-base
+package: github.com/ken-aio/go-echo-base
 import:
 - package: github.com/Sirupsen/logrus
 #- package: github.com/go-sql-driver/mysql

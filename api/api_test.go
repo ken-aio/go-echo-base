@@ -5,8 +5,8 @@ import (
 	"net/http/httptest"
 	"strings"
 
-	"github.com/ken-aio/echo-base/db"
-	"github.com/ken-aio/echo-base/middleware"
+	"github.com/ken-aio/go-echo-base/db"
+	"github.com/ken-aio/go-echo-base/middleware"
 
 	"github.com/gocraft/dbr"
 	"github.com/labstack/echo"

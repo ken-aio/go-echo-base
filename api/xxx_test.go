@@ -3,7 +3,7 @@ package api
 import (
 	"net/http"
 
-	"github.com/ken-aio/echo-base/model"
+	"github.com/ken-aio/go-echo-base/model"
 
 	"github.com/Sirupsen/logrus"
 	"github.com/labstack/echo"
@@ -16,7 +16,7 @@ func (s *ApiSuite) Test_PostXxx(c *C) {
 	context, rec := buildContext(c, echo.POST, "/api/v1/xxxs", xxx_json)
 	tx, code, resp := requestAPI(c, PostXxx(), context, rec)
 	resXxx := new(model.Xxx)
-	tx.Select("*").From("xxx").Where("name = ?", expectedName).LoadStruct(resXxx)
+	tx.Select("*").From("xxxs").Where("name = ?", expectedName).LoadStruct(resXxx)
 	tx.Rollback()
 	logrus.Info(resXxx)
 

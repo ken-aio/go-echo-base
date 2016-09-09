@@ -4,7 +4,7 @@ import (
 	"strconv"
 
 	"github.com/Sirupsen/logrus"
-	"github.com/ken-aio/echo-base/model"
+	"github.com/ken-aio/go-echo-base/model"
 	"github.com/gocraft/dbr"
 	"github.com/labstack/echo"
 	"github.com/valyala/fasthttp"

@@ -1,10 +1,10 @@
 package route
 
 import (
-	"github.com/ken-aio/echo-base/api"
-	"github.com/ken-aio/echo-base/db"
-	"github.com/ken-aio/echo-base/handler"
-	myMw "github.com/ken-aio/echo-base/middleware"
+	"github.com/ken-aio/go-echo-base/api"
+	"github.com/ken-aio/go-echo-base/db"
+	"github.com/ken-aio/go-echo-base/handler"
+	myMw "github.com/ken-aio/go-echo-base/middleware"
 	"github.com/labstack/echo"
 	echoMw "github.com/labstack/echo/middleware"
 )

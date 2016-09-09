@@ -2,7 +2,7 @@ package main
 
 import (
 	"github.com/Sirupsen/logrus"
-	"github.com/ken-aio/echo-base/route"
+	"github.com/ken-aio/go-echo-base/route"
 	"github.com/labstack/echo/engine/fasthttp"
 )
 

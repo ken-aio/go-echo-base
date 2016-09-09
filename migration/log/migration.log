@@ -1,0 +1,28 @@
+D, [2016-09-09T11:22:50.813447 #28181] DEBUG -- :   [1m[35m (40.1ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying PRIMARY KEY)[0m
+D, [2016-09-09T11:22:50.841565 #28181] DEBUG -- :   [1m[35m (23.2ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+D, [2016-09-09T11:22:50.847013 #28181] DEBUG -- :   [1m[35m (3.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3345248889904706190);[0m
+D, [2016-09-09T11:22:50.869192 #28181] DEBUG -- :   [1m[36mActiveRecord::SchemaMigration Load (2.6ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+I, [2016-09-09T11:22:50.915865 #28181]  INFO -- : Migrating to CreateXxxs (1)
+D, [2016-09-09T11:22:50.919461 #28181] DEBUG -- :   [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+D, [2016-09-09T11:22:50.948140 #28181] DEBUG -- :   [1m[35m (26.8ms)[0m  [1m[35mCREATE TABLE "xxxs" ("id" serial primary key, "name" character varying NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+D, [2016-09-09T11:22:50.973976 #28181] DEBUG -- :   [1m[35mSQL (18.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "1"]]
+D, [2016-09-09T11:22:50.980259 #28181] DEBUG -- :   [1m[35m (5.8ms)[0m  [1m[35mCOMMIT[0m
+D, [2016-09-09T11:22:50.989399 #28181] DEBUG -- :   [1m[36mActiveRecord::InternalMetadata Load (1.8ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", :environment], ["LIMIT", 1]]
+D, [2016-09-09T11:22:50.997160 #28181] DEBUG -- :   [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+D, [2016-09-09T11:22:51.001192 #28181] DEBUG -- :   [1m[35mSQL (2.9ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "default_env"], ["created_at", 2016-09-09 02:22:50 UTC], ["updated_at", 2016-09-09 02:22:50 UTC]]
+D, [2016-09-09T11:22:51.002045 #28181] DEBUG -- :   [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+D, [2016-09-09T11:22:51.002600 #28181] DEBUG -- :   [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(3345248889904706190)[0m
+D, [2016-09-09T13:22:25.999238 #32343] DEBUG -- :   [1m[35m (40.7ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying PRIMARY KEY)[0m
+D, [2016-09-09T13:22:26.025716 #32343] DEBUG -- :   [1m[35m (22.5ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+D, [2016-09-09T13:22:26.028453 #32343] DEBUG -- :   [1m[35m (0.8ms)[0m  [1m[34mSELECT pg_try_advisory_lock(985621182588539490);[0m
+D, [2016-09-09T13:22:26.044895 #32343] DEBUG -- :   [1m[36mActiveRecord::SchemaMigration Load (2.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+I, [2016-09-09T13:22:26.088190 #32343]  INFO -- : Migrating to CreateXxxs (1)
+D, [2016-09-09T13:22:26.091131 #32343] DEBUG -- :   [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+D, [2016-09-09T13:22:26.121580 #32343] DEBUG -- :   [1m[35m (28.4ms)[0m  [1m[35mCREATE TABLE "xxxs" ("id" serial primary key, "name" character varying NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+D, [2016-09-09T13:22:26.131071 #32343] DEBUG -- :   [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "1"]]
+D, [2016-09-09T13:22:26.136958 #32343] DEBUG -- :   [1m[35m (5.6ms)[0m  [1m[35mCOMMIT[0m
+D, [2016-09-09T13:22:26.155171 #32343] DEBUG -- :   [1m[36mActiveRecord::InternalMetadata Load (1.8ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", :environment], ["LIMIT", 1]]
+D, [2016-09-09T13:22:26.161882 #32343] DEBUG -- :   [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+D, [2016-09-09T13:22:26.163567 #32343] DEBUG -- :   [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "default_env"], ["created_at", 2016-09-09 04:22:26 UTC], ["updated_at", 2016-09-09 04:22:26 UTC]]
+D, [2016-09-09T13:22:26.164359 #32343] DEBUG -- :   [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+D, [2016-09-09T13:22:26.165004 #32343] DEBUG -- :   [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(985621182588539490)[0m

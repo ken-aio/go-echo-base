@@ -2,7 +2,7 @@ package db
 
 import (
 	"github.com/Sirupsen/logrus"
-	"github.com/ken-aio/echo-base/conf"
+	"github.com/ken-aio/go-echo-base/conf"
 	_ "github.com/go-sql-driver/mysql"
 	"github.com/gocraft/dbr"
 )

@@ -1,0 +1,43 @@
+require 'active_record'
+require 'logger'
+require 'yaml'
+
+task :default => 'db:migrate'
+
+namespace :db do
+  MIGRATIONS_DIR = "db/migrate"
+
+  desc "Migrate the database"
+  task :migrate => :environment do
+    ActiveRecord::Migrator.migrate(MIGRATIONS_DIR, ENV["VERSION"] ? ENV["VERSION"] : nil)
+  end
+
+  desc "Roll back the database schema to the previous version"
+  task :rollback => :environment do
+    ActiveRecord::Migrator.rollback(MIGRATIONS_DIR, ENV["STEP"] ? ENV["STEP"] : 1)
+  end
+
+  desc "Create database"
+  task :create do
+    conf = YAML.load(File.open('config/database.yml'))
+    tmp_conf = conf[ENV['RAKE_ENV']].clone
+    tmp_conf['database'] = nil # DB Create時はdefaultのdbに接続する
+    ActiveRecord::Base.establish_connection(tmp_conf)
+    ActiveRecord::Base.connection.create_database(conf[ENV['RAKE_ENV']]['database'])
+  end
+
+  desc "Drop database"
+  task :drop do
+    conf = YAML.load(File.open('config/database.yml'))
+    tmp_conf = conf[ENV['RAKE_ENV']].clone
+    tmp_conf['database'] = nil # DB drop時はdefaultのdbに接続する
+    ActiveRecord::Base.establish_connection(tmp_conf)
+    ActiveRecord::Base.connection.drop_database(conf[ENV['RAKE_ENV']]['database'])
+  end
+
+  task :environment do
+    conf = YAML.load(File.open('config/database.yml'))
+    ActiveRecord::Base.establish_connection(conf[ENV['RAKE_ENV']])
+    ActiveRecord::Base.logger = Logger.new(File.open('log/migration.log', 'a'))
+  end
+end
